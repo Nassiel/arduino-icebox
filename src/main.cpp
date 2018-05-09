@@ -6,6 +6,7 @@
  */
 
 #include "Arduino.h"
+#include "Adafruit_Sensor.h"
 #include "main.h"
 #include "DHT.h"
 
