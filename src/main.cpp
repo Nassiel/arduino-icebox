@@ -110,12 +110,12 @@ void ColdMode(){
 
 void CalculatePwm(float tTemp, float lastTTemp){
   float diff = tTemp - lastTTemp;
-  int runningPeltierPwm = peltierPwm;
-  int runningFanPwm = fanPwm;
+  //int runningPeltierPwm = peltierPwm;
+  //int runningFanPwm = fanPwm;
 
   int gradientValue = (int)(255.0 * (1.0-pow((lastTTemp / tTemp), (diff))));
   int linearValue = (int)(5.1 * tTemp - 204.0);
-  peltierPwm = MAX(gradientValue, linearValue);
+  peltierPwm = HMAX(gradientValue, linearValue);
 
   //While i don't have the water temperature, it'll be the same "power"
   fanPwm = peltierPwm;

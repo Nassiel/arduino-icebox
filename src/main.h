@@ -35,7 +35,11 @@ void evaluateVariables();
 void stablishVariables();
 void restoreVariables();
 
-#define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
-#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+void ColdMode();
+void HotMode();
+void CalculatePwm(float tTemp, float lastTTemp);
+
+#define HMIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+#define HMAX(X, Y) (((X) > (Y)) ? (X) : (Y))
 #define REACH_LIMIT(temp) (((temp) > (COLD_LIMIT)) || ((temp) < (WARM_LIMIT)))
 #define GET_MODE(temp) (((temp) < (WARM_LIMIT)) ? (HOT_MODE) : (COLD_MODE))
